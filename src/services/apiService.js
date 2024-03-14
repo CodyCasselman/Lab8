@@ -13,7 +13,7 @@ export const fetchProducts = async () => {
 
 export const getProductDetails = async (id) => {
     try {
-        const responseDetails = await axios.get(BASE_URL);
+        const responseDetails = await axios.get(`${BASE_URL}/${id}`);
         return responseDetails.data;
     } catch (error) {
         throw error;
@@ -32,6 +32,8 @@ export const removeProduct = async (id) => {
 export const addProduct = (product) => {
     return axios.post(`${BASE_URL}/add`, JSON.stringify(product));
 };
+
+
 
 export const editProduct = (id, product) => {
     return axios.put(`${BASE_URL}/${id}`, JSON.stringify(product));
